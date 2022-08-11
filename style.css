@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+li{
+  list-style: none;
+}
+
+.container{
+  margin: 1rem;
+}
+
+.heading{
+  text-align: center;
+}
+
+#cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.card{
+  margin: 1rem;
+  width: 10rem;
+  background-color: rgb(17, 239, 150);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.image-section{
+  height: 6rem;
+  width: 5rem;
+  background-color: aqua;
+  margin: auto;
+}
