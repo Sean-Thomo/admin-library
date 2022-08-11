@@ -11,9 +11,31 @@
 <body>
   <div class="container">
     <h1 class="heading">Books</h1>
-    <div id="cards">
-
+    <div class="button">
+      <button href="/" class="add-book-btn">+ Add Book</button>
     </div>
+    <div class="form">
+      <form action="#">
+        <div class="field">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="name" placeholder="Enter Name" required>
+        </div>
+        <div class="field">
+          <label for="author">Author:</label>
+          <input type="text" name="author" id="author" placeholder="Enter Author" required>
+        </div>
+        <div class="field">
+          <label for="pages">Pages:</label>
+          <input type="number" min="1" max="1,079" name="pages" id="pages" required>
+        </div>
+        <div class="field">
+          <label for="status">Have you read it?</label>
+          <p><input type="radio" name="status" id="yes" value="yes">Yes</p>
+          <p><input type="radio" name="status" id="no" value="no" checked>No</p>
+        </div>
+      </form>
+    </div>
+    <div id="cards"></div>
   </div>
 </body>
-</html>
+</html>s
