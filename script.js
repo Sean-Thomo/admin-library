@@ -6,6 +6,7 @@ const bookPages = document.querySelector('.pages');
 const bookStatus = document.querySelector('.status');
 const addBook = document.querySelector('.add-book-btn');
 const form = document.querySelector('.form');
+form.style.display = 'none'
 
 let myLibrary = [
   {
@@ -32,7 +33,11 @@ let myLibrary = [
 ]
 
 addBook.addEventListener('click', () => {
-  form.classList.toggle('show');
+  if (form.style.display === 'none') {
+    form.style.display = 'block'
+  } else {
+    form.style.display = 'none'
+  }
 })
 
 function Book(title, author, pages, status) {
