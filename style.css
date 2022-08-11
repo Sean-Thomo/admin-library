@@ -27,7 +27,7 @@ li{
   display: grid;
 }
 
-.add-book-btn{
+.btn{
   padding: 1rem;
   border-radius: 1rem;
   border: none;
@@ -59,9 +59,26 @@ li{
   padding: 1rem;
 }
 
-.image-section{
-  height: 6rem;
-  width: 5rem;
-  background-color: aqua;
+
+/* FORM */
+.form{
+  display: grid;
+  text-align: center;
+}
+
+form{
   margin: auto;
+  background-color: aliceblue;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.form .field{
+  margin: 1rem;
+}
+
+.form input{
+  border-radius: 1rem;
+  border: none;
+  padding: 1rem;
 }

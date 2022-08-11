@@ -12,13 +12,14 @@
   <div class="container">
     <h1 class="heading">Books</h1>
     <div class="button">
-      <button href="/" class="add-book-btn">+ Add Book</button>
+      <button href="/" class="add-book-btn btn">+ Add Book</button>
     </div>
     <div class="form">
       <form action="#">
+        <h1>Add New Book</h1>
         <div class="field">
-            <label for="title">Title:</label>
-            <input type="text" name="title" id="name" placeholder="Enter Name" required>
+          <label for="title">Title:</label>
+          <input type="text" name="title" id="name" placeholder="Enter Name" required>
         </div>
         <div class="field">
           <label for="author">Author:</label>
@@ -33,6 +34,8 @@
           <p><input type="radio" name="status" id="yes" value="yes">Yes</p>
           <p><input type="radio" name="status" id="no" value="no" checked>No</p>
         </div>
+        <button href="/" class="submit-book-btn btn">Add Book</button>
+
       </form>
     </div>
     <div id="cards"></div>
