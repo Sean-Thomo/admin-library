@@ -44,6 +44,10 @@ li{
   background-color: aliceblue;
 }
 
+.submit-book-btn{
+  background-color: #11ef96;
+}
+
 /* Cards */
 .heading{
   text-align: center;
@@ -58,7 +62,7 @@ li{
 .card{
   text-align: center;
   margin: 1rem;
-  background-color: rgb(17, 239, 150);
+  background-color: #11ef96;
   border-radius: 1rem;
   padding: 1rem;
 }
@@ -92,4 +96,8 @@ form{
   border-radius: 1rem;
   border: none;
   padding: 1rem;
+}
+
+input[type="radio"]{
+  margin: 0.4rem;
 }
