@@ -15,7 +15,7 @@
       <button href="/" class="add-book-btn btn">+ Add Book</button>
     </div>
     <div class="form">
-      <form action="#">
+      <form action="#" method="post">
         <h1>Add New Book</h1>
         <div class="field">
           <label for="title">Title:</label>
@@ -31,10 +31,10 @@
         </div>
         <div class="field">
           <label for="status">Have you read it?</label>
-          <p><input type="radio" name="status" id="yes" value="yes">Yes</p>
-          <p><input type="radio" name="status" id="no" value="no" checked>No</p>
+          <p><input type="radio" name="status" id="yes" value="false">Yes</p>
+          <p><input type="radio" name="status" id="no" value="true" checked>No</p>
         </div>
-        <button href="/" class="submit-book-btn btn">Add Book</button>
+        <button href="/" type="submit" class="submit-book-btn btn">Add Book</button>
 
       </form>
     </div>
