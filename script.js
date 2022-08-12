@@ -1,44 +1,26 @@
 // Get html classes
-const cards = document.getElementById('cards');
-const bookTitle = document.querySelector('.title');
-const bookAuthor = document.querySelector('.author');
-const bookPages = document.querySelector('.pages');
-const bookStatus = document.querySelector('.status');
-const addBook = document.querySelector('.add-book-btn');
-const form = document.querySelector('.form');
-form.style.display = 'none'
+const cards = document.getElementById("cards");
+const bookTitle = document.querySelector(".title");
+const bookAuthor = document.querySelector(".author");
+const bookPages = document.querySelector(".pages");
+const bookStatus = document.querySelector(".status");
+const addBook = document.querySelector(".add-book-btn");
+const formDiv = document.querySelector(".form");
+formDiv.style.display = "none";
 
-let myLibrary = [
-  {
-    title: 'Title 1',
-    author: 'J.R.R. Tolkien',
-    pages: '295 pages',
-    status: 'not ready yet'
-  }, {
-    title: 'Title 2',
-    author: 'J.R.R. Tolkien',
-    pages: '295 pages',
-    status: 'not ready yet'
-  }, {
-    title: 'Title 3',
-    author: 'J.R.R. Tolkien',
-    pages: '295 pages',
-    status: 'not ready yet'
-  },{
-    title: 'Title 4',
-    author: 'J.R.R. Tolkien',
-    pages: '295 pages',
-    status: 'not ready yet'
-  },
-]
+// Actual form
+const form = document.getElementById("form");
+const submitBtn = document.querySelector(".submit-book-btn");
 
-addBook.addEventListener('click', () => {
-  if (form.style.display === 'none') {
-    form.style.display = 'block'
+let books = [];
+
+addBook.addEventListener("click", () => {
+  if (formDiv.style.display === "none") {
+    formDiv.style.display = "block";
   } else {
-    form.style.display = 'none'
+    formDiv.style.display = "none";
   }
-})
+});
 
 function Book(title, author, pages, status) {
   this.title = title;
@@ -47,12 +29,33 @@ function Book(title, author, pages, status) {
   this.status = status;
 }
 
+function getDataForm(e) {
+  e.preventDefault();
+  let formData = new FormData(form);
+  let title = formData.get("title");
+  let author = formData.get("author");
+  let pages = formData.get("pages");
+  let status = formData.get("status");
+  if (status) {
+    status = 'Not read yet'
+  } else {
+    status = 'Read'
+  }
+
+  let book = new Book(title, author, pages, status);
+  books.push(book);
+  createCards(books);
+  console.log(books);
+}
+
+submitBtn.addEventListener("click", getDataForm);
+
 // Loop through array of objects and populate card elements
 function createCards(array) {
-  array.forEach(result => {
-    // Construct card 
-    const card = document.createElement('div');
-    card.classList.add('card');
+  array.forEach((result) => {
+    // Construct card
+    const card = document.createElement("div");
+    card.classList.add("card");
     const content = `
       <div class="image-section"></div>
       <ul>
@@ -69,22 +72,3 @@ function createCards(array) {
     cards.appendChild(card);
   });
 }
-
-function getBookInfo() {
-  const title = document.getElementById('title');
-  const author = document.getElementById('author');
-  const pages = document.getElementById('pages');
-  const status = document.getElementById('status');
-  let book = { title, author, pages, status }
-  return book;
-}
-
-createCards(myLibrary)
-
-function addBookToLibrary(e) {
-  e.preventDefault();
-  const newBook = new Book(getBookInfo())
-  myLibrary.push(newBook);
-  return newBook;
-}
-console.log(addBookToLibrary());
