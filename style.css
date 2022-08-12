@@ -36,6 +36,10 @@ li{
   background: transparent;
 }
 
+.btn:hover{
+  cursor: pointer;
+}
+
 .add-book-btn:hover{
   background-color: aliceblue;
 }

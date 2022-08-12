@@ -12,6 +12,9 @@ formDiv.style.display = "none";
 const form = document.getElementById("form");
 const submitBtn = document.querySelector(".submit-book-btn");
 
+// Cards
+const cardsDiv = document.querySelector('.cards');
+
 let books = [];
 
 addBook.addEventListener("click", () => {
@@ -45,7 +48,9 @@ function getDataForm(e) {
   let book = new Book(title, author, pages, status);
   books.push(book);
   createCards(books);
-  console.log(books);
+  cardsDiv.style.display = "none";
+  formDiv.style.display = "none";
+
 }
 
 submitBtn.addEventListener("click", getDataForm);
