@@ -13,7 +13,7 @@ const form = document.getElementById("form");
 const submitBtn = document.querySelector(".submit-book-btn");
 
 // Cards
-const cardsDiv = document.querySelector('.cards');
+const cardsDiv = document.querySelector('#cards');
 
 let books = [];
 
@@ -39,17 +39,22 @@ function getDataForm(e) {
   let author = formData.get("author");
   let pages = formData.get("pages");
   let status = formData.get("status");
-  if (status) {
-    status = 'Not read yet'
-  } else {
-    status = 'Read'
-  }
+  // if (title.value != "" || author.value != "") {
+    if (status) {
+      status = 'Not read yet'
+    } else {
+      status = 'Read'
+    }
 
-  let book = new Book(title, author, pages, status);
-  books.push(book);
-  createCards(books);
-  cardsDiv.style.display = "none";
-  formDiv.style.display = "none";
+    let book = new Book(title, author, pages, status);
+    books.push(book);
+    createCards(books);
+    formDiv.style.display = "none";
+  // }
+
+  title.value="";
+  author.value="";
+  pages.value=0;
 
 }
 
@@ -69,6 +74,7 @@ function createCards(array) {
         <li><p class="pages">${result.pages}</p></li>
         <li><p class="status">${result.status}</p></li>
       </ul>
+      <button class"delete-btn">Delete</button>
     `;
 
     card.innerHTML = content;
@@ -76,4 +82,21 @@ function createCards(array) {
     // Append new card element to the card-container
     cards.appendChild(card);
   });
+}
+
+// Clear the inputs when form submitted
+function clearInputs(title, author, pages){
+
+}
+
+function deleteEntry(){
+  const deleteBtn =  document.getElementById("cards");
+  for(let i = 0; i < deleteBtn.clientHeight; i++){
+    deleteBtn[i].addEventListener('click', () => {
+      deleteBtn[i].parentElement.style.opacity = 0;
+      setTimeout(() => {
+        deleteBtn[i].parentElement.style.display = "none";  
+      })
+    })
+  }
 }
