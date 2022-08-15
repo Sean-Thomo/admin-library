@@ -67,7 +67,6 @@ function createCards(array) {
     const card = document.createElement("div");
     card.classList.add("card");
     const content = `
-      <div class="image-section"></div>
       <ul>
         <li><h1 class="title">${result.title}</h1></li>
         <li><p class="author">${result.author}</p></li>
@@ -84,19 +83,30 @@ function createCards(array) {
   });
 }
 
-// Clear the inputs when form submitted
-function clearInputs(title, author, pages){
+const inputText = document.getElementById('text');
+const myButton = document.querySelector('.btn-list');
+const list = document.querySelector('ul');
+myButton.addEventListener('click', (e) => {
+  if(inputText.value != "") {
+    e.preventDefault();
+    const myLi = document.createElement('li');
+    myLi.innerHTML = inputText.value;
+    list.appendChild(myLi);
 
-}
+    const mySpan = document.createElement('span');
+    mySpan.innerHTML = "X";
+    myLi.appendChild(mySpan);
+  }
 
-function deleteEntry(){
-  const deleteBtn =  document.getElementById("cards");
-  for(let i = 0; i < deleteBtn.clientHeight; i++){
-    deleteBtn[i].addEventListener('click', () => {
-      deleteBtn[i].parentElement.style.opacity = 0;
+  const close = document.querySelectorAll('span');
+  for(let i = 0; i<close.length; i++){
+    close[i].addEventListener('click', ()=> {
+      close[i].parentElement.style.opacity = 0;
       setTimeout(() => {
-        deleteBtn[i].parentElement.style.display = "none";  
-      })
+        close[i].parentElement.style.display = "none";
+        close[i].parentElement.remove();
+      }, 500)
     })
   }
-}
+  inputText.value = "";
+});
