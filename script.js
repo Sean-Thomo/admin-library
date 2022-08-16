@@ -18,22 +18,22 @@ const cardsDiv = document.querySelector('#cards');
 let books = [
   {
     title:'Test 1',
-    author: 'Auhour 1',
+    author: 'Author 1',
     pages: 123,
     status: 'Read'
   },{
     title:'Test 2',
-    author: 'Auhour 2',
+    author: 'Author 2',
     pages: 123,
     status: 'Read'
   },{
     title:'Test 3',
-    author: 'Auhour 3',
+    author: 'Author 3',
     pages: 123,
     status: 'Read'
   },{
     title:'Test 3',
-    author: 'Auhour 3',
+    author: 'Author 3',
     pages: 123,
     status: 'Read'
   },

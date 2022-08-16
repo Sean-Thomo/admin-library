@@ -12,7 +12,11 @@ li{
 }
 
 .container{
-  margin: 1rem;
+  padding: 1rem;
+  background: rgb(2,0,36);
+  color: white;
+  background: linear-gradient(53deg, rgba(2,0,36,1) 0%, rgba(28,11,128,1) 27%, rgba(12,9,121,1) 53%, rgba(0,212,255,1) 100%);
+  min-height: 100vh;
 }
 
 /* heading */
@@ -34,6 +38,7 @@ li{
   font-weight: 500;
   margin: auto;
   background: transparent;
+  color: white;
 }
 
 .btn:hover{
@@ -42,10 +47,24 @@ li{
 
 .add-book-btn:hover{
   background-color: aliceblue;
+  color: darkblue;
 }
 
 .submit-book-btn{
   background-color: #11ef96;
+}
+
+.delete-btn{
+  border: none;
+  background-color: black;
+  color: yellow;
+  padding: 0.7rem;
+  border-radius: 1rem;
+}
+
+.delete-btn:hover{
+  cursor: pointer;
+  background-color: #003;
 }
 
 /* Cards */
@@ -62,21 +81,18 @@ li{
 .card{
   text-align: center;
   margin: 1rem;
-  background-color: #11ef96;
   border-radius: 1rem;
   padding: 1rem;
+  backdrop-filter: blur(1rem) saturate(180%);
+  -webkit-backdrop-filter: blur(1rem) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  color: white;
 }
 
 .card > * {
   margin: 1rem;
-}
-
-.delete-btn{
-  border: none;
-  background-color: black;
-  color: yellow;
-  padding: 0.7rem;
-  border-radius: 1rem;
 }
 
 /* FORM */
