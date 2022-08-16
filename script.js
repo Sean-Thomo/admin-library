@@ -15,7 +15,29 @@ const submitBtn = document.querySelector(".submit-book-btn");
 // Cards
 const cardsDiv = document.querySelector('#cards');
 
-let books = [];
+let books = [
+  {
+    title:'Test 1',
+    author: 'Auhour 1',
+    pages: 123,
+    status: 'Read'
+  },{
+    title:'Test 2',
+    author: 'Auhour 2',
+    pages: 123,
+    status: 'Read'
+  },{
+    title:'Test 3',
+    author: 'Auhour 3',
+    pages: 123,
+    status: 'Read'
+  },{
+    title:'Test 3',
+    author: 'Auhour 3',
+    pages: 123,
+    status: 'Read'
+  },
+];
 
 addBook.addEventListener("click", () => {
   if (formDiv.style.display === "none") {
@@ -39,22 +61,20 @@ function getDataForm(e) {
   let author = formData.get("author");
   let pages = formData.get("pages");
   let status = formData.get("status");
-  // if (title.value != "" || author.value != "") {
-    if (status) {
-      status = 'Not read yet'
-    } else {
-      status = 'Read'
-    }
+  if (status) {
+    status = 'Not read yet'
+  } else {
+    status = 'Read'
+  }
 
-    let book = new Book(title, author, pages, status);
-    books.push(book);
-    createCards(books);
-    formDiv.style.display = "none";
-  // }
+  let book = new Book(title, author, pages, status);
+  books.push(book);
+  createCards(books);
+  formDiv.style.display = "none";
 
-  title.value="";
-  author.value="";
-  pages.value=0;
+  bookTitle.value="";
+  bookAuthor.value="";
+  bookPages.value=0;
 
 }
 
@@ -67,46 +87,15 @@ function createCards(array) {
     const card = document.createElement("div");
     card.classList.add("card");
     const content = `
-      <ul>
-        <li><h1 class="title">${result.title}</h1></li>
-        <li><p class="author">${result.author}</p></li>
-        <li><p class="pages">${result.pages}</p></li>
-        <li><p class="status">${result.status}</p></li>
-      </ul>
-      <button class"delete-btn">Delete</button>
+      <h1 class="title">${result.title}</h1>
+      <p class="author">${result.author}</p>
+      <p class="pages">${result.pages}</p>
+      <p class="status">${result.status}</p>
+      <button class="delete-btn" onclick="return this.parentNode.remove()">Delete</button>
     `;
 
     card.innerHTML = content;
-
-    // Append new card element to the card-container
     cards.appendChild(card);
   });
+
 }
-
-const inputText = document.getElementById('text');
-const myButton = document.querySelector('.btn-list');
-const list = document.querySelector('ul');
-myButton.addEventListener('click', (e) => {
-  if(inputText.value != "") {
-    e.preventDefault();
-    const myLi = document.createElement('li');
-    myLi.innerHTML = inputText.value;
-    list.appendChild(myLi);
-
-    const mySpan = document.createElement('span');
-    mySpan.innerHTML = "X";
-    myLi.appendChild(mySpan);
-  }
-
-  const close = document.querySelectorAll('span');
-  for(let i = 0; i<close.length; i++){
-    close[i].addEventListener('click', ()=> {
-      close[i].parentElement.style.opacity = 0;
-      setTimeout(() => {
-        close[i].parentElement.style.display = "none";
-        close[i].parentElement.remove();
-      }, 500)
-    })
-  }
-  inputText.value = "";
-});

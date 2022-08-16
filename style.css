@@ -68,11 +68,15 @@ li{
 }
 
 .card > * {
-  margin: 3rem;
+  margin: 1rem;
 }
 
-.card li{
-  margin: 1rem;
+.delete-btn{
+  border: none;
+  background-color: black;
+  color: yellow;
+  padding: 0.7rem;
+  border-radius: 1rem;
 }
 
 /* FORM */
